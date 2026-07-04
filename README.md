@@ -14,7 +14,7 @@ El primer módulo, **Politicas Contables**, proporciona:
 
 - Guías de punto de uso en formularios de ERPNext
 - Registro formal de consultas al contador
-- Actas de vigencia (snapshots firmados con hash) de documentos normativos
+- Vigencias documentales (snapshots firmados con hash) de documentos normativos
 
 ## Estado
 

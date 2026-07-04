@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "creation": "2026-07-04 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "documento_tipo",
+  "documento",
+  "seccion",
+  "nota"
+ ],
+ "fields": [
+  {
+   "fieldname": "documento_tipo",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tipo de documento",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "documento",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Documento",
+   "options": "documento_tipo"
+  },
+  {
+   "fieldname": "seccion",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sección citada",
+   "description": "Ubicación dentro del documento referenciado",
+   "placeholder": "Ej: 11.2 · Art. 513-1 · Sección 10"
+  },
+  {
+   "fieldname": "nota",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nota"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Politicas Contables",
+ "name": "Referencia Normativa",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "custom": 0
+}

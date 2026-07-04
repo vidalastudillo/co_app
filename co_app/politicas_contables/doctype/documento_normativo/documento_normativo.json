@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:nombre",
+ "creation": "2026-07-04 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "nombre",
+  "url",
+  "company",
+  "descripcion"
+ ],
+ "fields": [
+  {
+   "fieldname": "nombre",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Nombre",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "URL (única copia)",
+   "options": "URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "Compañía",
+   "options": "Company"
+  },
+  {
+   "fieldname": "descripcion",
+   "fieldtype": "Small Text",
+   "label": "Descripción"
+  }
+ ],
+ "links": [],
+ "modified": "2026-07-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Politicas Contables",
+ "name": "Documento Normativo",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "custom": 0
+}
