@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:PAUTA-{####}",
+ "creation": "2026-07-04 16:55:21.509191",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doctype_destino",
+  "titulo",
+  "activo",
+  "company",
+  "texto",
+  "condicion",
+  "section_break_referencias",
+  "referencias"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctype_destino",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "DocType destino",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "titulo",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "T\u00edtulo",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "activo",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Activo"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Compa\u00f1\u00eda (vac\u00edo = todas)",
+   "options": "Company"
+  },
+  {
+   "fieldname": "texto",
+   "fieldtype": "Markdown Editor",
+   "label": "Texto (qu\u00e9 hacer)"
+  },
+  {
+   "description": "Vac\u00eda = siempre visible. Sintaxis eval: con doc en alcance, estilo depends_on de Frappe. Recetario completo en docs/.",
+   "fieldname": "condicion",
+   "fieldtype": "Code",
+   "label": "Condici\u00f3n (opcional)"
+  },
+  {
+   "fieldname": "section_break_referencias",
+   "fieldtype": "Section Break",
+   "label": "Referencias"
+  },
+  {
+   "fieldname": "referencias",
+   "fieldtype": "Table",
+   "label": "Referencias",
+   "options": "Referencia Normativa"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-04 16:55:21.509191",
+ "modified_by": "Administrator",
+ "module": "Politicas Contables",
+ "name": "Pauta de Uso",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "titulo",
+ "track_changes": 1,
+ "custom": 0
+}

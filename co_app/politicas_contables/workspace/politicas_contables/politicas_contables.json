@@ -1,0 +1,107 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"hdr\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Politicas Contables</span>\", \"col\": 12}}, {\"id\": \"sc-documento-normativo\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Documento Normativo\", \"col\": 3}}, {\"id\": \"sc-version-aprobada\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Version Aprobada\", \"col\": 3}}, {\"id\": \"sc-consulta-contable\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Consulta Contable\", \"col\": 3}}, {\"id\": \"sc-pauta-de-uso\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Pauta de Uso\", \"col\": 3}}]",
+ "creation": "2026-07-04 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "small-file",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Politicas Contables",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Politicas Contables",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Documento Normativo",
+   "link_to": "Documento Normativo",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Version Aprobada",
+   "link_to": "Version Aprobada",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Consulta Contable",
+   "link_to": "Consulta Contable",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pauta de Uso",
+   "link_to": "Pauta de Uso",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-07-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Politicas Contables",
+ "name": "Politicas Contables",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Documento Normativo",
+   "link_to": "Documento Normativo",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Version Aprobada",
+   "link_to": "Version Aprobada",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Consulta Contable",
+   "link_to": "Consulta Contable",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pauta de Uso",
+   "link_to": "Pauta de Uso",
+   "type": "DocType"
+  }
+ ],
+ "title": "Politicas Contables"
+}
