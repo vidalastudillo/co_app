@@ -121,10 +121,13 @@ jobs:
           pip install frappe-bench
           bench init --frappe-branch version-15 --python "$(which python)" /tmp/frappe-bench
           cd /tmp/frappe-bench
-          bench new-app --no-git test_app
-          cp -r "${{ github.workspace }}" apps/co_app
-          pip install -e apps/co_app
-          bench new-site test_site
+          bench get-app co_app "${{ github.workspace }}"
+          bench new-site test_site \
+            --db-root-password root \
+            --admin-password admin \
+            --db-host 127.0.0.1 \
+            --db-port 3306 \
+            --no-mariadb-socket
           bench --site test_site install-app co_app
 
       - name: Run Tests
