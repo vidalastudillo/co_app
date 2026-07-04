@@ -95,6 +95,11 @@ jobs:
       - name: Add to Hosts
         run: echo "127.0.0.1 test_site" | sudo tee -a /etc/hosts
 
+      - name: Install redis-server
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y redis-server
+
       - name: Cache pip
         uses: actions/cache@v4
         with:
