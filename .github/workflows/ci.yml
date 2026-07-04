@@ -119,7 +119,7 @@ jobs:
       - name: Install Frappe and Co-App
         run: |
           pip install frappe-bench
-          bench init --python /usr/bin/python3 /tmp/frappe-bench
+          bench init --frappe-branch version-15 --python "$(which python)" /tmp/frappe-bench
           cd /tmp/frappe-bench
           bench new-app --no-git test_app
           cp -r "${{ github.workspace }}" apps/co_app
