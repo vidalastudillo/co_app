@@ -1,20 +1,19 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths-ignore:
-      - "**.css"
-      - "**.js"
       - "**.md"
-      - "**.html"
-      - "**.csv"
       - "**.po"
       - "**.pot"
   schedule:
     - cron: "0 0 * * *"
 
 concurrency:
-  group: develop-${{ github.event.number }}
+  group: ci-${{ github.event.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
