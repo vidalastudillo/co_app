@@ -4,6 +4,7 @@ authors = [
     { name = "VIDAL & ASTUDILLO Ltda", email = "jm@vidalastudillo.com"}
 ]
 description = "Cumplimiento colombiano para ERPNext (Colombia App)"
+license = {text = "GPL-3.0-or-later"}
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

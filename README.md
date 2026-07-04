@@ -1,33 +1,55 @@
-### CoApp
+# CoApp — *Colombia App*
 
-Cumplimiento colombiano para ERPNext (Colombia App)
+**Cumplimiento colombiano para ERPNext**
 
-### Installation
+CoApp (Colombia App) es una aplicación pública de cumplimiento normativo colombiano construida sobre Frappe/ERPNext. "CO" es el código de país de Colombia (ccTLD `.co`).
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+## Qué es
+
+CoApp implementa guías de punto de uso en formularios, registro formal de consultas al contador, y actas de vigencia (snapshots firmados con hash) de documentos normativos colombianos.
+
+El primer módulo, **Politicas Contables**, proporciona:
+
+- Guías de punto de uso en formularios de ERPNext
+- Registro formal de consultas al contador
+- Actas de vigencia (snapshots firmados con hash) de normas
+
+## Estado
+
+En desarrollo activo. Aún sin release.
+
+## Compatibilidad
+
+- Frappe v15 y v16
+- ERPNext v15 y v16
+
+## Instalación
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app co_app
+bench get-app https://github.com/vidalastudillo/co_app
+bench --site <site> install-app co_app
 ```
 
-### Contributing
+## Descargo de responsabilidad
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+Este software no constituye asesoría contable ni tributaria; verifique toda regla con la norma citada y con su asesor.
 
-```bash
-cd apps/co_app
-pre-commit install
-```
+## Privacidad
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+Esta app no envía datos a ningún servicio externo.
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+## Mantenimiento
 
-### License
+Mantenida por VIDAL & ASTUDILLO para su propia operación. Contribuciones bienvenidas; no garantizamos tiempos de respuesta.
 
-gpl-3.0
+## Principio del proyecto
+
+Toda funcionalidad cita la norma colombiana que la justifica (el *qué*) y el mecanismo canónico de Frappe/ERPNext que la implementa (el *cómo*).
+
+## English
+
+CoApp is a Colombian regulatory compliance application for Frappe/ERPNext. It provides accounting policy guidance, consultant inquiry logs, and regulatory document snapshots. Under active development. See CONTRIBUTING.md for contribution guidelines.
+
+---
+
+Copyright (C) 2026 VIDAL & ASTUDILLO Ltda — Licencia GPL-3.0-or-later. Autores: ver historial de git y página de contribuidores.

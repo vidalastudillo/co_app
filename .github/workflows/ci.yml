@@ -1,0 +1,129 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - "**.css"
+      - "**.js"
+      - "**.md"
+      - "**.html"
+      - "**.csv"
+      - "**.po"
+      - "**.pot"
+  schedule:
+    - cron: "0 0 * * *"
+
+concurrency:
+  group: develop-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint (Pre-commit)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+
+  license-check:
+    name: Verify license rule (no import erpnext)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+
+      - name: Check for import erpnext
+        run: |
+          if grep -rnE "^\s*(import erpnext|from erpnext)" co_app/ 2>/dev/null; then
+            echo "ERROR: PROHIBIDO import erpnext (regla GPL/acoplamiento)"
+            exit 1
+          fi
+          echo "License rule check passed"
+
+  tests:
+    name: Python Unit Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NODE_ENV: "production"
+
+    services:
+      mysql:
+        image: mariadb:10.6
+        env:
+          MARIADB_ROOT_PASSWORD: "root"
+        ports:
+          - 3306:3306
+        options: --health-cmd="mariadb-admin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Check for valid Python & Merge Conflicts
+        run: |
+          python -m compileall -f "${{ github.workspace }}"
+          if grep -lr --exclude-dir=node_modules "^<<<<<<< " "${{ github.workspace }}"
+              then echo "Found merge conflicts"
+              exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          check-latest: true
+
+      - name: Add to Hosts
+        run: echo "127.0.0.1 test_site" | sudo tee -a /etc/hosts
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt', '**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
+      - name: Install Frappe and Co-App
+        run: |
+          pip install frappe-bench
+          bench init --python /usr/bin/python3 /tmp/frappe-bench
+          cd /tmp/frappe-bench
+          bench new-app --no-git test_app
+          cp -r "${{ github.workspace }}" apps/co_app
+          pip install -e apps/co_app
+          bench new-site test_site
+          bench --site test_site install-app co_app
+
+      - name: Run Tests
+        run: |
+          cd /tmp/frappe-bench
+          bench --site test_site run-tests --app co_app
