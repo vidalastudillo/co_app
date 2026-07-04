@@ -1,18 +1,20 @@
 # CoApp — *Colombia App*
 
-**Cumplimiento colombiano para ERPNext**
+**Cumplimiento colombiano para ERPNext** — CO es Colombia (ISO 3166-1).
 
-CoApp (Colombia App) es una aplicación pública de cumplimiento normativo colombiano construida sobre Frappe/ERPNext. "CO" es el código de país de Colombia (ccTLD `.co`).
+CoApp es una aplicación pública de cumplimiento normativo colombiano construida sobre Frappe/ERPNext.
+
+## Principio del proyecto
+
+Toda funcionalidad cita la norma colombiana que la justifica (el *qué*) y el mecanismo canónico de Frappe/ERPNext que la implementa (el *cómo*). Lo que no puede citar ninguna de las dos fuentes, no se construye.
 
 ## Qué es
-
-CoApp implementa guías de punto de uso en formularios, registro formal de consultas al contador, y actas de vigencia (snapshots firmados con hash) de documentos normativos colombianos.
 
 El primer módulo, **Politicas Contables**, proporciona:
 
 - Guías de punto de uso en formularios de ERPNext
 - Registro formal de consultas al contador
-- Actas de vigencia (snapshots firmados con hash) de normas
+- Actas de vigencia (snapshots firmados con hash) de documentos normativos
 
 ## Estado
 
@@ -32,19 +34,15 @@ bench --site <site> install-app co_app
 
 ## Descargo de responsabilidad
 
-Este software no constituye asesoría contable ni tributaria; verifique toda regla con la norma citada y con su asesor.
+Este software no constituye asesoría contable ni tributaria. Toda regla debe verificarse contra la norma citada y con un profesional competente en la materia.
 
 ## Privacidad
 
-Esta app no envía datos a ningún servicio externo.
+CoApp, por sí misma, no envía datos a ningún servicio externo. Este compromiso cubre exclusivamente el código de esta app; no puede extenderse a Frappe, ERPNext ni a otras dependencias, que están fuera de su alcance.
 
 ## Mantenimiento
 
-Mantenida por VIDAL & ASTUDILLO para su propia operación. Contribuciones bienvenidas; no garantizamos tiempos de respuesta.
-
-## Principio del proyecto
-
-Toda funcionalidad cita la norma colombiana que la justifica (el *qué*) y el mecanismo canónico de Frappe/ERPNext que la implementa (el *cómo*).
+Mantenida por VIDAL & ASTUDILLO para su propia operación. Las contribuciones son bienvenidas; no se garantizan tiempos de respuesta.
 
 ## English
 
