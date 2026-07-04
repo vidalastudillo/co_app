@@ -3,7 +3,7 @@ app_title = "CoApp"
 app_publisher = "VIDAL & ASTUDILLO Ltda"
 app_description = "Cumplimiento colombiano para ERPNext (Colombia App)"
 app_email = "jm@vidalastudillo.com"
-app_license = "gpl-3.0"
+app_license = "GPL-3.0-or-later"
 
 # Apps
 # ------------------
