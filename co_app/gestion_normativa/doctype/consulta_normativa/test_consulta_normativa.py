@@ -100,42 +100,64 @@ class TestConsultaNormativa(FrappeTestCase):
 
 		self.assertEqual(getdate(doc.fecha_respuesta), getdate(today()))
 
-	def test_notificaciones_encolan_correo(self):
+	def test_notificaciones_generan_communication(self):
 		"""Pieza 3 / pieza 7(e): verificación real, no simulada.
 
 		`Document.run_notifications` (frappe/model/document.py) solo se omite
-		bajo `frappe.flags.in_import/in_patch/in_install`; NO bajo `in_test`.
-		El envío SMTP se omite en test (`frappe.flags.in_test`, ver
-		frappe/email/doctype/email_queue/email_queue.py líneas ~180-189), pero
-		la fila en *Email Queue* se inserta de forma síncrona igualmente
-		(`frappe.sendmail` con `delayed=True` solo difiere el envío, no el
-		encolamiento). Por eso esto es verificable aquí, sin navegador.
+		bajo `frappe.flags.in_import/in_patch/in_install`; NO bajo `in_test`, así
+		que las 2 Notification SÍ se evalúan aquí.
+
+		Se verifica contra *Communication* y no contra *Email Queue*: se
+		comprobó en la práctica (falla real de CI en un site sin ningún Email
+		Account configurado) que `frappe.sendmail` solo llega a insertar en
+		Email Queue si antes logra resolver una cuenta de correo saliente
+		(`EmailAccount.find_outgoing(_raise_error=True)`,
+		frappe/email/doctype/email_account/email_account.py:384-410) y arma el
+		mensaje sin error; si eso falla, `QueueBuilder.as_dict` atrapa
+		`InvalidEmailAddressError` y descarta la fila en silencio
+		(frappe/email/doctype/email_queue/email_queue.py:820-838). El
+		`Communication` en cambio se crea ANTES de ese intento, con
+		`send_email=False`, y no depende de que exista una cuenta de correo
+		(`frappe/core/doctype/communication/email.py:149-173`, `_make`,
+		invocada desde `Notification.send_an_email`). Por eso es la señal
+		correcta y estable para verificar aquí, sin navegador ni depender de
+		infraestructura de correo del entorno.
 		"""
 		doc = self.make_consulta(consultado_a=TEST_USER_EMAIL)
 
-		encolado_al_crear = frappe.db.exists(
-			"Email Queue", {"reference_doctype": "Consulta Normativa", "reference_name": doc.name}
+		comunicacion_al_crear = frappe.db.exists(
+			"Communication",
+			{
+				"reference_doctype": "Consulta Normativa",
+				"reference_name": doc.name,
+				"communication_type": "Automated Message",
+			},
 		)
 		self.assertTrue(
-			encolado_al_crear,
-			"Se esperaba una fila en Email Queue por la Notification 'New' hacia consultado_a",
+			comunicacion_al_crear,
+			"Se esperaba una Communication por la Notification 'New' hacia consultado_a",
 		)
 
 		# La Notification (b) envía al owner del documento. En este test el owner
 		# real es "Administrator" (usuario de los tests), que no es un correo
 		# válido, así que el destinatario se resolvería vacío y no probaría nada.
-		# Se fuerza un owner con correo válido para poder verificar el encolado.
+		# Se fuerza un owner con correo válido para poder verificar el envío.
 		frappe.db.set_value("Consulta Normativa", doc.name, "owner", TEST_USER_EMAIL)
 		doc.reload()
 
 		doc.estado = "Respondida"
 		doc.save(ignore_permissions=True)
 
-		total_encolados = frappe.db.count(
-			"Email Queue", {"reference_doctype": "Consulta Normativa", "reference_name": doc.name}
+		total_comunicaciones = frappe.db.count(
+			"Communication",
+			{
+				"reference_doctype": "Consulta Normativa",
+				"reference_name": doc.name,
+				"communication_type": "Automated Message",
+			},
 		)
 		self.assertGreaterEqual(
-			total_encolados,
+			total_comunicaciones,
 			2,
-			"Se esperaba una segunda fila en Email Queue por la Notification 'Value Change' al owner",
+			"Se esperaba una segunda Communication por la Notification 'Value Change' al owner",
 		)
