@@ -113,9 +113,7 @@ class TestVigenciaDocumental(FrappeTestCase):
 		vigencia.save()
 		vigencia.submit()
 
-		self.assertRaises(
-			frappe.ValidationError, frappe.delete_doc, "Vigencia Documental", vigencia.name
-		)
+		self.assertRaises(frappe.ValidationError, frappe.delete_doc, "Vigencia Documental", vigencia.name)
 
 	def test_eliminar_vigencia_cancelada_lanza_excepcion(self):
 		vigencia = self.make_vigencia("v6", "2026-01-01")
@@ -126,9 +124,7 @@ class TestVigenciaDocumental(FrappeTestCase):
 		vigencia.submit()
 		vigencia.cancel()
 
-		self.assertRaises(
-			frappe.ValidationError, frappe.delete_doc, "Vigencia Documental", vigencia.name
-		)
+		self.assertRaises(frappe.ValidationError, frappe.delete_doc, "Vigencia Documental", vigencia.name)
 
 	def test_eliminar_borrador_esta_permitido(self):
 		vigencia = self.make_vigencia("v7", "2026-01-01")
