@@ -96,8 +96,8 @@
  "links": [],
  "modified": "2026-07-04 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Politicas Contables",
- "name": "Consulta Contable",
+ "module": "Gestion Normativa",
+ "name": "Consulta Normativa",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

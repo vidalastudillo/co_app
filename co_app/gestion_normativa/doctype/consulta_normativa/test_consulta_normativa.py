@@ -7,5 +7,5 @@ from frappe.tests.utils import FrappeTestCase
 test_ignore = ["Company"]
 
 
-class TestConsultaContable(FrappeTestCase):
+class TestConsultaNormativa(FrappeTestCase):
 	pass

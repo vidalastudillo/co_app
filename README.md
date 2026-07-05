@@ -10,7 +10,7 @@ Toda funcionalidad cita la norma colombiana que la justifica (el *qué*) y el me
 
 ## Qué es
 
-El primer módulo, **Politicas Contables**, proporciona:
+El primer módulo, **Gestión Normativa**, proporciona:
 
 - Guías de punto de uso en formularios de ERPNext
 - Registro formal de consultas al contador
