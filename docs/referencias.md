@@ -13,3 +13,6 @@ Tabla de normas colombianas y documentación técnica citada.
 | Frappe v15 — Notifications | https://docs.frappe.io/erpnext/user/manual/en/notifications | Sistema de notificaciones automáticas por condición (email, SMS, Slack). |
 | Frappe v15 — Auto Email Report | https://docs.frappe.io/erpnext/user/manual/en/auto-email-reports | Envío automático recurrente de reportes vía email según condiciones (horario, datos). |
 | Frappe v15 — ToDo y assign | https://docs.frappe.io/erpnext/user/manual/en/assignment | Creación automática de tareas asignadas desde scripts server (`doc.add_assignment`). |
+| Frappe v15 — Form API (`set_intro`) | https://docs.frappe.io/framework/user/en/api/form | API de formulario client-side: `set_intro`, `set_df_property`, `add_custom_button`, etc. |
+| Frappe v15 — Asset bundling | https://docs.frappe.io/framework/user/en/basics/asset-bundling | Convención de bundles JS/CSS (`*.bundle.js`) cargados vía `app_include_js`. |
+| Frappe v15 — Llamadas whitelisted desde JS | https://docs.frappe.io/framework/user/en/guides/basics/frappe_ajax_call | `frappe.call`/`frappe.whitelist()` para invocar métodos Python desde el cliente. |
