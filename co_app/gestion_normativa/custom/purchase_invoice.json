@@ -1,0 +1,20 @@
+{
+ "custom_fields": [],
+ "custom_perms": [],
+ "doctype": "Purchase Invoice",
+ "links": [
+  {
+   "parent": "Purchase Invoice",
+   "parenttype": "DocType",
+   "parentfield": "links",
+   "custom": 1,
+   "group": "Cumplimiento Normativo",
+   "hidden": 0,
+   "is_child_table": 0,
+   "link_doctype": "Consulta Normativa",
+   "link_fieldname": "documento"
+  }
+ ],
+ "property_setters": [],
+ "sync_on_migrate": 1
+}
