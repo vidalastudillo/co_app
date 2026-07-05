@@ -26,7 +26,12 @@ app_license = "GPL-3.0-or-later"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/co_app/css/co_app.css"
-# app_include_js = "/assets/co_app/js/co_app.js"
+
+# Surfacing de Pauta de Uso (incremento 3, spec §Surfacing de pautas): al
+# cargar el Desk, carga el bundle que registra frappe.ui.form.on(doctype,
+# "refresh", ...) por cada doctype con pautas activas. Convención de asset
+# bundling v15 (ver docs/referencias.md).
+app_include_js = ["pauta_de_uso.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/co_app/css/co_app.css"

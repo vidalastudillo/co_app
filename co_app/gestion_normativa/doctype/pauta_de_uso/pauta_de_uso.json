@@ -4,6 +4,7 @@
  "allow_rename": 1,
  "autoname": "format:PAUTA-{####}",
  "creation": "2026-07-04 16:55:21.509191",
+ "description": "Guía de punto de uso: texto y enlaces normativos que aparecen automáticamente (`set_intro`) en el formulario del DocType destino cuando se cumple una condición opcional. Use el botón «Probar condición» para verificar contra un documento real antes de activarla.",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -19,6 +20,7 @@
  ],
  "fields": [
   {
+   "description": "DocType donde se mostrar\u00e1 esta pauta (p. ej. Sales Invoice). Se registra un `frappe.ui.form.on(doctype, 'refresh', ...)` para este valor.",
    "fieldname": "doctype_destino",
    "fieldtype": "Link",
    "in_filter": 1,
@@ -39,6 +41,7 @@
   },
   {
    "default": "1",
+   "description": "Solo las pautas activas se sirven a `get_pautas` y se muestran en el formulario destino.",
    "fieldname": "activo",
    "fieldtype": "Check",
    "in_filter": 1,
@@ -52,12 +55,13 @@
    "options": "Company"
   },
   {
+   "description": "Se muestra con `frappe.markdown()` dentro del banner (`set_intro`) del formulario destino.",
    "fieldname": "texto",
    "fieldtype": "Markdown Editor",
    "label": "Texto (qu\u00e9 hacer)"
   },
   {
-   "description": "Vac\u00eda = siempre visible. Sintaxis eval: con doc en alcance, estilo depends_on de Frappe. Recetario completo en docs/.",
+   "description": "Vac\u00eda = siempre visible. Sintaxis eval: con doc en alcance, estilo depends_on de Frappe (frappe/public/js/frappe/form/layout.js). Recetario:<br>- Vac\u00eda \u2192 siempre aplica.<br>- Campo vale X \u2192 <code>eval:doc.origen == \"Externo\"</code><br>- Campo no vac\u00edo \u2192 <code>eval:doc.remarks</code><br>- Alg\u00fan rengl\u00f3n de tabla hija cumple \u2192 <code>eval:doc.items.length && doc.items.filter(i => i.item_code == \"SERV-IPUSUI\").length</code><br>- Combinaci\u00f3n && / || \u2192 <code>eval:doc.docstatus == 1 && doc.company == \"Mi Empresa S.A.S.\"</code><br>Error de sintaxis: bloquea el guardado de la pauta con un mensaje claro; en los formularios destino los errores nunca se muestran al usuario. Recetario completo en docs/gestion_normativa/pauta-de-uso.md.",
    "fieldname": "condicion",
    "fieldtype": "Code",
    "label": "Condici\u00f3n (opcional)"
@@ -68,6 +72,7 @@
    "label": "Referencias"
   },
   {
+   "description": "Cada rengl\u00f3n que apunte a un Documento Normativo se compone en un enlace (URL del Documento Normativo + \u00a7secci\u00f3n) dentro del banner de la pauta.",
    "fieldname": "referencias",
    "fieldtype": "Table",
    "label": "Referencias",

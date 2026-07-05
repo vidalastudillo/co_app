@@ -3,6 +3,12 @@
 
 from frappe.model.document import Document
 
+from co_app.gestion_normativa.api import clear_pautas_cache
+
 
 class PautadeUso(Document):
-	pass
+	def on_update(self):
+		clear_pautas_cache()
+
+	def on_trash(self):
+		clear_pautas_cache()
