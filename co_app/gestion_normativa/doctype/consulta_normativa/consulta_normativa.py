@@ -4,5 +4,5 @@
 from frappe.model.document import Document
 
 
-class ConsultaContable(Document):
+class ConsultaNormativa(Document):
 	pass

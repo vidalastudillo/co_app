@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "nombre",
+  "origen",
   "url",
   "company",
   "descripcion"
@@ -21,6 +22,16 @@
    "label": "Nombre",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "default": "Interno",
+   "description": "Interno: documento gobernado por la empresa (sus versiones se certifican con Vigencias Documentales). Externo: norma de terceros, registrada solo como blanco de referencia.",
+   "fieldname": "origen",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Origen",
+   "options": "Interno\nExterno"
   },
   {
    "fieldname": "url",
@@ -47,7 +58,7 @@
  "links": [],
  "modified": "2026-07-04 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Politicas Contables",
+ "module": "Gestion Normativa",
  "name": "Documento Normativo",
  "owner": "Administrator",
  "permissions": [
