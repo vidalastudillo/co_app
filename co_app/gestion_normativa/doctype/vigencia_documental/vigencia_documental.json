@@ -44,6 +44,7 @@
    "reqd": 1
   },
   {
+   "description": "Nombre de la versión tal como aparece en el documento firmado, p. ej. «2026-A» o «v3». No se renumera después de validar.",
    "fieldname": "version",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -52,12 +53,14 @@
    "reqd": 1
   },
   {
+   "description": "PDF escaneado del documento firmado. Tras validar, el registro es inmutable y su integridad queda certificada por el hash.",
    "fieldname": "pdf_firmado",
    "fieldtype": "Attach",
    "label": "PDF firmado",
    "reqd": 1
   },
   {
+   "description": "Huella digital calculada automáticamente al validar. Compárela con `shasum -a 256` del archivo para verificar integridad.",
    "fieldname": "hash_sha256",
    "fieldtype": "Data",
    "label": "Hash SHA-256",
