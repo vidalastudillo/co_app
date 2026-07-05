@@ -13,7 +13,6 @@
   "estado",
   "pregunta",
   "respuesta",
-  "como_se_aplico",
   "fecha_respuesta",
   "section_break_referencias",
   "referencias"
@@ -72,11 +71,6 @@
    "label": "Respuesta (posición formal)"
   },
   {
-   "fieldname": "como_se_aplico",
-   "fieldtype": "Small Text",
-   "label": "Cómo se aplicó"
-  },
-  {
    "fieldname": "fecha_respuesta",
    "fieldtype": "Date",
    "label": "Fecha de respuesta"
@@ -94,7 +88,7 @@
   }
  ],
  "links": [],
- "modified": "2026-07-04 00:00:00.000000",
+ "modified": "2026-07-05 00:55:15.661708",
  "modified_by": "Administrator",
  "module": "Gestion Normativa",
  "name": "Consulta Normativa",

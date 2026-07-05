@@ -13,7 +13,6 @@
   "version",
   "pdf_firmado",
   "hash_sha256",
-  "url_version",
   "notas_de_cambio",
   "amended_from"
  ],
@@ -65,12 +64,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "url_version",
-   "fieldtype": "Data",
-   "label": "URL de la versión",
-   "options": "URL"
-  },
-  {
    "fieldname": "notas_de_cambio",
    "fieldtype": "Small Text",
    "label": "Notas de cambio"
@@ -90,7 +83,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-07-04 16:55:21.029045",
+ "modified": "2026-07-05 00:55:15.661708",
  "modified_by": "Administrator",
  "module": "Gestion Normativa",
  "name": "Vigencia Documental",
