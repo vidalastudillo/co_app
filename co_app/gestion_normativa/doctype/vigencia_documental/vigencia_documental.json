@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2026-07-04 16:55:21.029045",
+ "description": "Snapshot inmutable de una versión certificada de un documento normativo en una fecha. Su integridad queda registrada con un hash digital. Una vez validada, solo se puede enmendar (creando una nueva vigencia) o cancelar (marcada como histórica, sin poder borrarse).",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -27,6 +28,7 @@
    "reqd": 1
   },
   {
+   "description": "Documento del cual se certifica esta versión.",
    "fieldname": "documento_normativo",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -36,6 +38,7 @@
    "reqd": 1
   },
   {
+   "description": "A partir de cuándo esta versión es vigente. Puede ser retroactiva.",
    "fieldname": "fecha_vigencia",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -68,6 +71,7 @@
    "read_only": 1
   },
   {
+   "description": "Cambios respecto a la versión anterior u otros comentarios relevantes.",
    "fieldname": "notas_de_cambio",
    "fieldtype": "Small Text",
    "label": "Notas de cambio"

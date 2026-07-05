@@ -1,6 +1,7 @@
 {
  "actions": [],
  "creation": "2026-07-04 00:00:00.000000",
+ "description": "Vínculo entre un registro cualquiera (factura, consulta, acta) y una sección específica de un Documento Normativo. Permite rastrear qué normas respaldan cada decisión.",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -11,6 +12,7 @@
  ],
  "fields": [
   {
+   "description": "Tipo de documento de destino (p. ej. Sales Invoice, Consulta Normativa).",
    "fieldname": "documento_tipo",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -19,6 +21,7 @@
    "reqd": 1
   },
   {
+   "description": "El registro específico al que se refiere (p. ej. el número de factura).",
    "fieldname": "documento",
    "fieldtype": "Dynamic Link",
    "in_list_view": 1,
@@ -34,6 +37,7 @@
    "placeholder": "Ej: 11.2 · Art. 513-1 · Sección 10"
   },
   {
+   "description": "Aclaración adicional sobre por qué se cita esta sección.",
    "fieldname": "nota",
    "fieldtype": "Data",
    "in_list_view": 1,

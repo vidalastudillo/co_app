@@ -3,6 +3,7 @@
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2026-07-04 00:00:00.000000",
+ "description": "Solicitud formal de orientación sobre una norma o política. Registra la pregunta, respuesta consolidada, estado y referencias normativas. Genera automáticamente un recordatorio al asignado y notifica cuando hay respuesta.",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -43,6 +44,7 @@
    "options": "Company"
   },
   {
+   "description": "Usuario responsable de responder la consulta. Se le asigna automáticamente una tarea al crear.",
    "fieldname": "consultado_a",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -51,6 +53,7 @@
   },
   {
    "default": "Abierta",
+   "description": "Abierta: en espera. Respondida: se proporcionó respuesta. Aplicada: ya se implementó. Descartada: no procede.",
    "fieldname": "estado",
    "fieldtype": "Select",
    "in_filter": 1,
@@ -60,17 +63,20 @@
    "options": "Abierta\nRespondida\nAplicada\nDescartada"
   },
   {
+   "description": "Enunciado de lo que se necesita aclarar.",
    "fieldname": "pregunta",
    "fieldtype": "Text Editor",
    "label": "Pregunta",
    "reqd": 1
   },
   {
+   "description": "Posición formal consolidada que responde la pregunta. Se llena cuando el estado es Respondida.",
    "fieldname": "respuesta",
    "fieldtype": "Text Editor",
    "label": "Respuesta (posición formal)"
   },
   {
+   "description": "Cuándo se proporcionó la respuesta. Se asigna automáticamente al cambiar a Respondida, pero es editable.",
    "fieldname": "fecha_respuesta",
    "fieldtype": "Date",
    "label": "Fecha de respuesta"
