@@ -1,0 +1,37 @@
+[
+ {
+  "doctype": "Notification",
+  "name": "Consulta Normativa - Consulta Asignada",
+  "document_type": "Consulta Normativa",
+  "subject": "Nueva consulta normativa asignada: {{ doc.titulo }}",
+  "event": "New",
+  "channel": "Email",
+  "enabled": 1,
+  "send_system_notification": 1,
+  "condition": "doc.consultado_a",
+  "message": "<p>Se ha creado la consulta normativa <strong>{{ doc.titulo }}</strong> y se le ha asignado a usted como consultado.</p><p><a href=\"{{ doc.get_url() }}\">Ver la consulta</a></p>",
+  "recipients": [
+   {
+    "receiver_by_document_field": "consultado_a"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Consulta Normativa - Consulta Respondida",
+  "document_type": "Consulta Normativa",
+  "subject": "Consulta normativa respondida: {{ doc.titulo }}",
+  "event": "Value Change",
+  "value_changed": "estado",
+  "condition": "doc.estado == \"Respondida\"",
+  "channel": "Email",
+  "enabled": 1,
+  "send_system_notification": 1,
+  "message": "<p>La consulta normativa <strong>{{ doc.titulo }}</strong> que usted registró ha sido respondida.</p><p><a href=\"{{ doc.get_url() }}\">Ver la respuesta</a></p>",
+  "recipients": [
+   {
+    "receiver_by_document_field": "owner"
+   }
+  ]
+ }
+]

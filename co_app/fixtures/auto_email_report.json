@@ -1,0 +1,15 @@
+[
+ {
+  "doctype": "Auto Email Report",
+  "name": "Consultas Abiertas",
+  "report": "Consultas Abiertas",
+  "user": "Administrator",
+  "enabled": 1,
+  "email_to": "desk@vidalastudillo.com",
+  "frequency": "Weekly",
+  "day_of_week": "Monday",
+  "format": "HTML",
+  "send_if_data": 1,
+  "no_of_rows": 100
+ }
+]

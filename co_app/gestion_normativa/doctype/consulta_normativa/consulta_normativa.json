@@ -101,6 +101,11 @@
    "read": 1,
    "role": "System Manager",
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Contador Externo",
+   "write": 1
   }
  ],
  "sort_field": "modified",

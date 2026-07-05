@@ -113,6 +113,29 @@ app_license = "GPL-3.0-or-later"
 
 # notification_config = "co_app.notifications.get_notification_config"
 
+# Fixtures
+# --------
+# Rol "Contador Externo", Notifications de correo y el Report/Auto Email Report
+# de "Consultas Abiertas" viven como datos (co_app/fixtures/*.json), no como
+# lógica: se sincronizan automáticamente en cada `bench migrate` sin necesidad
+# de declararlos aquí. Se listan solo para que `bench export-fixtures` sepa
+# qué reexportar si se editan a mano desde el Desk.
+fixtures = [
+	{"doctype": "Role", "filters": [["name", "=", "Contador Externo"]]},
+	{
+		"doctype": "Notification",
+		"filters": [
+			[
+				"name",
+				"in",
+				["Consulta Normativa - Consulta Asignada", "Consulta Normativa - Consulta Respondida"],
+			]
+		],
+	},
+	{"doctype": "Report", "filters": [["name", "=", "Consultas Abiertas"]]},
+	{"doctype": "Auto Email Report", "filters": [["name", "=", "Consultas Abiertas"]]},
+]
+
 # Permissions
 # -----------
 # Permissions evaluated in scripted ways

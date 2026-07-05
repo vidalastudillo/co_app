@@ -1,0 +1,22 @@
+[
+ {
+  "doctype": "Report",
+  "name": "Consultas Abiertas",
+  "report_name": "Consultas Abiertas",
+  "ref_doctype": "Consulta Normativa",
+  "report_type": "Report Builder",
+  "is_standard": "No",
+  "module": "Gestion Normativa",
+  "disabled": 0,
+  "add_total_row": 0,
+  "roles": [
+   {
+    "role": "System Manager"
+   },
+   {
+    "role": "Contador Externo"
+   }
+  ],
+  "json": "{\"filters\": [[\"Consulta Normativa\", \"estado\", \"=\", \"Abierta\"]], \"columns\": [[\"name\", \"Consulta Normativa\"], [\"titulo\", \"Consulta Normativa\"], [\"consultado_a\", \"Consulta Normativa\"], [\"creation\", \"Consulta Normativa\"], [\"company\", \"Consulta Normativa\"]], \"sort_by\": \"Consulta Normativa.creation\", \"sort_order\": \"desc\"}"
+ }
+]
