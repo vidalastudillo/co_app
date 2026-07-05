@@ -64,6 +64,7 @@
    "fieldname": "hash_sha256",
    "fieldtype": "Data",
    "label": "Hash SHA-256",
+   "no_copy": 1,
    "read_only": 1
   },
   {
@@ -94,6 +95,8 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

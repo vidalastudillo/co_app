@@ -35,11 +35,11 @@ class VigenciaDocumental(Document):
 
 		return hashlib.sha256(content).hexdigest()
 
-	def on_cancel(self):
-		frappe.throw(
-			_(
-				"Una Vigencia Documental validada es inmutable: no puede cancelarse ni "
-				"corregirse (amend). Si necesita registrar un cambio, cree una nueva "
-				"Vigencia Documental."
+	def on_trash(self):
+		if self.docstatus != 0:
+			frappe.throw(
+				_(
+					"Solo los borradores pueden eliminarse. Un acta validada o cancelada es "
+					"parte del rastro documental y debe conservarse."
+				)
 			)
-		)
