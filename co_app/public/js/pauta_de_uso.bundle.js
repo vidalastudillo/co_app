@@ -35,6 +35,30 @@ co_app.pautas.evaluate_condicion = function (condicion, doc) {
 	return !!frappe.utils.eval(expression, { doc });
 };
 
+// Chequeo de sintaxis de una condición SIN ejecutarla: devuelve null si la
+// condición está vacía o parsea bien, o el Error de sintaxis si no. Usa el
+// constructor de Function, que PARSEA el cuerpo sin ejecutarlo (parseo puro,
+// no evaluación: jamás toca datos ni ejecuta la expresión). Lo usa el
+// handler `validate` de Pauta de Uso para bloquear el guardado de una
+// condición rota en la autoría, donde el error sí es accionable.
+co_app.pautas.parse_error = function (condicion) {
+	if (!condicion || !condicion.trim()) {
+		return null;
+	}
+
+	let expression = condicion.trim();
+	if (expression.startsWith("eval:")) {
+		expression = expression.slice(5);
+	}
+
+	try {
+		new Function("doc", "return (" + expression + ")");
+		return null;
+	} catch (e) {
+		return e;
+	}
+};
+
 // company vacía en la pauta = aplica a todas las compañías. Con company, solo
 // aplica si `doc.company` coincide; si el doctype destino no tiene campo
 // company, `doc.company` es undefined y la pauta con company nunca aplica.

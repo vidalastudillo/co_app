@@ -61,7 +61,7 @@
    "label": "Texto (qu\u00e9 hacer)"
   },
   {
-   "description": "Vac\u00eda = siempre visible. Sintaxis eval: con doc en alcance, estilo depends_on de Frappe (frappe/public/js/frappe/form/layout.js). Recetario:<br>- Vac\u00eda \u2192 siempre aplica.<br>- Campo vale X \u2192 <code>eval:doc.origen == \"Externo\"</code><br>- Campo no vac\u00edo \u2192 <code>eval:doc.remarks</code><br>- Alg\u00fan rengl\u00f3n de tabla hija cumple \u2192 <code>eval:doc.items.length && doc.items.filter(i => i.item_code == \"SERV-IPUSUI\").length</code><br>- Combinaci\u00f3n && / || \u2192 <code>eval:doc.docstatus == 1 && doc.company == \"Mi Empresa S.A.S.\"</code><br>Error de sintaxis: el formulario queda intacto y se registra un warning en la consola (no se rompe nada). Recetario completo en docs/gestion_normativa/pauta-de-uso.md.",
+   "description": "Vac\u00eda = siempre visible. Sintaxis eval: con doc en alcance, estilo depends_on de Frappe (frappe/public/js/frappe/form/layout.js). Recetario:<br>- Vac\u00eda \u2192 siempre aplica.<br>- Campo vale X \u2192 <code>eval:doc.origen == \"Externo\"</code><br>- Campo no vac\u00edo \u2192 <code>eval:doc.remarks</code><br>- Alg\u00fan rengl\u00f3n de tabla hija cumple \u2192 <code>eval:doc.items.length && doc.items.filter(i => i.item_code == \"SERV-IPUSUI\").length</code><br>- Combinaci\u00f3n && / || \u2192 <code>eval:doc.docstatus == 1 && doc.company == \"Mi Empresa S.A.S.\"</code><br>Error de sintaxis: bloquea el guardado de la pauta con un mensaje claro; en los formularios destino los errores nunca se muestran al usuario. Recetario completo en docs/gestion_normativa/pauta-de-uso.md.",
    "fieldname": "condicion",
    "fieldtype": "Code",
    "label": "Condici\u00f3n (opcional)"
